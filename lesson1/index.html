@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Атрибуты  defer async позволяют включать код ассинхронно и не прирывать загрузку страницыю
+    Defer - запуск скпирта после загрузки страницы.
+    Async - скачивает скрипт и останавливает загрузку страницы  в этот же момент, после чего запускает скриптю
+    После выполнения скрипта продолжает зангрузку страницы. Работают только для внешних скриптов.
+    Только при наличии src="". Вместе используются для кроссбраузерности.-->
+
+    <script src="script.js" async defer></script>
+</body>
+</html>
