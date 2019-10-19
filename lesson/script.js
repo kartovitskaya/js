@@ -1,23 +1,26 @@
 //Задание
 
 let money = 300;
-let income = 'taxi';
-let addExpenses = 'Food, Water, Study';
-let deposit = false;
-let mission = 100;
-let period = 5;
+    income = 'taxi';
+    addExpenses = 'Food, Water, Study';
+    deposit = false;
+    mission = 100;
+    period = 5;
+    budgetDay= money/30;
+    budgetDay2= money%30;
 
-console.log('money', 'income', 'deposit');
+console.log(typeof money, income, deposit);
+
 console.log(income.length);
-console.log(period, mission);
-console.log(addExpenses.toLowerCase());
-console.log(addExpenses.split(', '));
 
-let budgetDay = 300;
-budgetDay /=30;
-console.log('budgetDay:', budgetDay);
-budgetDay %=30;
-console.log('budgetDay:', budgetDay);
+console.log('Период месяцев:', period);
+
+console.log('Цель заработать', mission, 'рублей/долларов/гривен/юани');
+
+console.log(addExpenses.toLowerCase().split(', '));
+
+console.log(budgetDay);
+console.log(budgetDay2);
 
 
 //Задание 2
