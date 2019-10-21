@@ -7,9 +7,9 @@ let money = 300;
     mission = 100;
     period = 5;
     budgetDay= money/30;
-    budgetDay2= money%30;
+    budgetDayRest= money%30;
 
-console.log(typeof money, income, deposit);
+console.log(typeof money, typeof income, typeof deposit);
 
 console.log(income.length);
 
@@ -20,18 +20,20 @@ console.log('Цель заработать', mission, 'рублей/доллар
 console.log(addExpenses.toLowerCase().split(', '));
 
 console.log(budgetDay);
-console.log(budgetDay2);
+console.log(budgetDayRest);
 
 
 //Задание 2
  
 let num = 266219;
+    numResult = persistence(num)**3;
+
 function persistence(num) {
     return [...num.toString()].reduce((p, v) => p * v);
 }
 console.log(persistence(num));
 
-console.log(persistence(num)**3);
+// console.log(persistence(num)**3);
 
-console.log(persistence(num).substring(0, 1));
+console.log(numResult.substring(0, 1));
 
