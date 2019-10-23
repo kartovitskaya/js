@@ -1,26 +1,26 @@
 //Задание
 
-let money = 300;
-    income = 'taxi';
+// let money = 300;
+let income = 'taxi';
     addExpenses = 'Food, Water, Study';
-    deposit = false;
-    mission = 100;
+    // deposit = false;
+    // mission = 100;
     period = 5;
-    budgetDay= money/30;
-    budgetDayRest= money%30;
+    // budgetDay= money/30;
+    // budgetDayRest= money%30;
 
-console.log(typeof money, typeof income, typeof deposit);
+// console.log(typeof money, typeof income, typeof deposit);
 
 console.log(income.length);
 
-console.log('Период месяцев:', period);
+// console.log('Период месяцев:', period);
 
-console.log('Цель заработать', mission, 'рублей/долларов/гривен/юани');
+// console.log('Цель заработать', mission, 'рублей/долларов/гривен/юани');
 
 console.log(addExpenses.toLowerCase().split(', '));
 
-console.log(budgetDay);
-console.log(budgetDayRest);
+// console.log(budgetDay);
+// console.log(budgetDayRest);
 
 
 //Задание 2
@@ -33,7 +33,7 @@ function persistence(num) {
 }
 console.log(persistence(num));
 
-console.log(numResult.toString.substring(0, 2));
+// console.log(numResult.toString.substring(0, 2));
 
 //Задание
 let money = prompt('Ваш месячный доход?');
