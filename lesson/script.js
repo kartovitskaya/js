@@ -1,37 +1,44 @@
 //Задание
+    let money = prompt('Ваш месячный доход?');
 
-let money = 300;
-    income = 'taxi';
-    addExpenses = 'Food, Water, Study';
-    deposit = false;
-    mission = 100;
-    period = 5;
-    budgetDay= money/30;
-    budgetDayRest= money%30;
+        addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
+        console.log(addExpenses.split(', '));
 
-console.log(typeof money, typeof income, typeof deposit);
+        deposit = confirm('Есть ли у вас депозит в банке?');
 
-console.log(income.length);
+        console.log(typeof money, typeof income, typeof deposit);
 
-console.log('Период месяцев:', period);
+        yourMonthlyExpensesFirst = prompt('Какие обязательные ежемесячные расходы у вас есть?');
+        howMuchFirst = prompt('Во сколько это обойдется?');
 
-console.log('Цель заработать', mission, 'рублей/долларов/гривен/юани');
+        yourMonthlyExpensesSecond = prompt('Какие обязательные ежемесячные расходы у вас есть?');
+        howMuchSecond = prompt('Во сколько это обойдется?');
 
-console.log(addExpenses.toLowerCase().split(', '));
+        budgetMonth = money - howMuchFirst;
+        console.log(budgetMonth);
 
-console.log(budgetDay);
-console.log(budgetDayRest);
+    let mission = 100;
+        missionMonth = mission/budgetMonth;
+        console.log(Math.ceil(missionMonth));
 
+    let budgetDay = budgetMonth/30;
+        console.log(Math.floor(budgetDay));
+    
+    switch(true){
+            case (budgetDay > 800):
+                console.log('Высокий уровень дохода');
+                break;
+            case (300 <= budgetDay && budgetDay < 800):
+                console.log('Средний уровень дохода');
+                break;
+            case (0 <= budgetDay && budgetDay < 300):
+                console.log('Низкий уровень дохода');
+                break;
+            case (budgetDay < 0):
+                console.log('Что то пошло не так');
+                break;
+            // default: 
+            //     console.log('не верно');
+            }
 
-//Задание 2
- 
-let num = 266219;
-    numResult = persistence(num)**3;
-
-function persistence(num) {
-    return [...num.toString()].reduce((p, v) => p * v);
-}
-console.log(persistence(num));
-
-console.log(numResult.toString.substring(0, 2));
 
