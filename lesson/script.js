@@ -78,3 +78,21 @@ switch(true){
     default: 
         console.log('не верно');
     }
+
+//Урок4
+function getExpensesMonth() {
+    return howMuchFirst + howMuchSecond;
+  }
+  getExpensesMonth();
+
+  function getAccumulatedMonth() {
+    return money - getExpensesMonth() ;
+  }
+  getAccumulatedMonth();
+
+  accumulatedMonth = getAccumulatedMonth();
+
+  function getTargetMonth(){
+    return mission / money;
+  }
+  
