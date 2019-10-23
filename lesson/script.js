@@ -33,7 +33,5 @@ function persistence(num) {
 }
 console.log(persistence(num));
 
-// console.log(persistence(num)**3);
-
-console.log(numResult.substring(0, 1));
+console.log(numResult.toString.substring(0, 2));
 
