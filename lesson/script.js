@@ -37,21 +37,22 @@ console.log(Math.floor(budgetDay));
 
 //Урок4
 
-let getExpensesMonth = function(a, b) {
-    return a + b;
-    };
-    getExpensesMonth(howMuchFirst, howMuchSecond);
+let getExpensesMonth = function() {
 
-let getAccumulatedMonth = function(a, b) {
-    return a - b;
+    return howMuchFirst + howMuchSecond;
     };
-    let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth);
+    getExpensesMonth();
+
+let getAccumulatedMonth = function() {
+    return money - getExpensesMonth;
+    };
+    let accumulatedMonth = getAccumulatedMonth();
     console.log(accumulatedMonth);
 
 let getTargetMonth = function(a, b) {
-    return a / b;
+    return mission / accumulatedMonth;
     };
-    getTargetMonth(mission, accumulatedMonth);
+    getTargetMonth();
     console.log(Math.floor(getTargetMonth));
 
     let showTypeOf = function(data) {
