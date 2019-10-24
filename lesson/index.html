@@ -8,5 +8,65 @@
 </head>
 <body>
     <script src="script.js"></script>
+
+    <!-- Объявление функции -->
+    function outputMessage() {
+        console.log('Hello world');
+    }
+    outputMessage();
+
+    <!-- Функциональное выражение -->
+    <!-- всегда вызов после функции, иначе ошибка -->
+    const consoleMessage = function(){
+        console.log('Hello, friend!');
+    };
+    consoleMessage();
+    <!-- Способ, который очень редко используют -->
+    const alertMessage = new Function('alert("Hi!")');
+    alertMessage();
+    <!-- Одна функция одно действие -->
+    <!-- Функция с переменной -->
+    function outputMessage(name){
+        console.log('Hello' + name);
+    }
+    outputMessage('Max');
+    <!-- Суммирует -->
+    const sum = function(a,b){
+        console.log(a + b);
+    };
+    sum(3, 5);
+    
+    let res = 0;
+    const sum = function(a,b){
+        res = a + b;
+    };
+    sum(3, 5);
+    console.log(res);
+
+    <!-- Функция вернула значение в другую переменную -->
+    const sum = function(a, b){
+        return a + b;
+    };
+
+    let res = sum(3, 5);
+    console.log('res: ', res);
+    
+    <!-- Дз -->
+    let showTypeOf = function(data) {
+        console,log(data, typeof(data));
+    };
+    showTypeOf(money);
+    <!-- Правильная чистая функция -->
+    let getStatusIncome = function(){
+        if (budgetDay < 300) {
+            return ('Низкий');
+        } else if (budgetDay <= 800){
+            return ('Средний');
+        } else {
+            return ('Высокий');
+        }
+    };
+
+    console.log(getStatusIncome());
 </body>
 </html>
