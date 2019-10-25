@@ -50,7 +50,7 @@ let getAccumulatedMonth = function() {
     return money - getExpensesMonth();
     };
     let accumulatedMonth = getAccumulatedMonth();
-    console.log(accumulatedMonth());
+    console.log(getAccumulatedMonth());
 
 let getTargetMonth = function() {
     return mission / accumulatedMonth;
