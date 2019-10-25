@@ -47,15 +47,17 @@ let getExpensesMonth = function() {
     let expensesAmount = getExpensesMonth();
 
 let getAccumulatedMonth = function() {
-    return money - expensesAmount;
+    return money - getExpensesMonth();
     };
     let accumulatedMonth = getAccumulatedMonth();
-    console.log(accumulatedMonth);
+    console.log(accumulatedMonth());
 
 let getTargetMonth = function() {
     return mission / accumulatedMonth;
     };
     getTargetMonth();
+    console.log(Math.floor(getTargetMonth()));
+
     
     let targetMonth = function(){
         if (getTargetMonth < 0) {
@@ -83,7 +85,7 @@ let getTargetMonth = function() {
     let getStatusIncome = function(){
         if (budgetDay <= 0){
             return ('Что-то пошло не так');
-        }else if (0 <budgetDay <= 300) {
+        }else if (0 < budgetDay <= 300) {
             return ('Низкий уровень дохода');
         }else if(300 <= budgetDay <= 800){
             return ('Средний уровень дохода');
