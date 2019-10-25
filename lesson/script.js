@@ -1,7 +1,9 @@
 'use strict';
 //Задание 1
-let enDays = 'Monday, Thuesday, Wednesday, Thursday, Friday, Saturday, Sunday';
-    ruDays = 'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье';
+let enDays = 'Monday, Thuesday, Wednesday, Thursday, Friday, Saturday, Sunday',
+    ruDays = 'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье',
+    lang;
+    
 if (lang = "en") {
     console.log(enDays);
 } else {
