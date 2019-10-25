@@ -1,16 +1,11 @@
 //Задание
 
-let income = 'taxi';
-    addExpenses = 'Food, Water, Study';
+let income = 'taxi',
+    addExpenses = 'Food, Water, Study',
     deposit = false;
 
-console.log(income.length);
-
-console.log(addExpenses.toLowerCase().split(', '));
-
-
 //Задание
-let money = prompt('Ваш месячный доход?');
+let money = +prompt('Ваш месячный доход?');
 
 addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
 console.log(addExpenses.split(', '));
@@ -63,11 +58,13 @@ let getTargetMonth = function(a, b) {
     showTypeOf(deposit);
 
     let getStatusIncome = function(){
-        if (budgetDay < 300) {
+        if (budgetDay <= 0){
+            return ('Что-то пошло не так');
+        }else if (budgetDay <= 300) {
             return ('Низкий уровень дохода');
-        } else if (budgetDay <= 800){
+        }else if(budgetDay <= 800){
             return ('Средний уровень дохода');
-        } else {
+        }else {
             return ('Высокий уровень дохода');
         }
     };
