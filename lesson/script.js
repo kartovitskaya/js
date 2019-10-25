@@ -1,21 +1,22 @@
 //Задание
 
-let money,
-    income = 'taxi',
+let income = 'taxi',
     addExpenses = 'Food, Water, Study',
     deposit = false,
     mission = 10000;
 
-let start = function(){
-
-    do{
-        money = +prompt('Ваш месячный доход?', 50000);
-        console.log('money:', money);
-    }
-    while(isNaN(money) || money === '' || money === null);
-};
+let money = start();
+    function start(){
+        let money;
+        do {
+            money = prompt('Ваш месячный доход?', 30000);
+        }
+        while (isNaN(money) || money === null || money === '');
+        return money;
+    };
 
 start();
+
 
 
 addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
@@ -82,9 +83,9 @@ let getTargetMonth = function() {
     let getStatusIncome = function(){
         if (budgetDay <= 0){
             return ('Что-то пошло не так');
-        }else if (budgetDay <= 300) {
+        }else if (0 <budgetDay <= 300) {
             return ('Низкий уровень дохода');
-        }else if(budgetDay <= 800){
+        }else if(300 <= budgetDay <= 800){
             return ('Средний уровень дохода');
         }else {
             return ('Высокий уровень дохода');
