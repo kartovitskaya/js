@@ -1,15 +1,15 @@
 //Задание
 
 let money,
-    income = 'taxi';
-    addExpenses = 'Food, Water, Study';
-    deposit = false;
+    income = 'taxi',
+    addExpenses = 'Food, Water, Study',
+    deposit = false,
     mission = 10000;
 
 let start = function(){
 
     do{
-        money = prompt('Ваш месячный доход?', 50000);
+        money = +prompt('Ваш месячный доход?', 50000);
         console.log('money:', money);
     }
     while(isNaN(money) || money === '' || money === null);
@@ -80,9 +80,9 @@ let getTargetMonth = function() {
     budgetDay = accumulatedMonth/30;
     
     let getStatusIncome = function(){
-        if (budgetDay < 0){
+        if (budgetDay <= 0){
             return ('Что-то пошло не так');
-        }else if (budgetDay < 300) {
+        }else if (budgetDay <= 300) {
             return ('Низкий уровень дохода');
         }else if(budgetDay <= 800){
             return ('Средний уровень дохода');
