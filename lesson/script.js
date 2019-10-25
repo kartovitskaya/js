@@ -1,94 +1,65 @@
-//Задание
+let firstNumber = +prompt('Введите первое число', 10);
+    secondNumber = +prompt('Введите второе число', 5);
 
-let money,
-    income = 'taxi',
-    addExpenses = 'Food, Water, Study',
-    deposit = false,
-    mission = 10000;
-
-let start = function(){
-
-    do{
-        money = +prompt('Ваш месячный доход?', 50000);
-        console.log('money:', money);
+let taskRes = function() {
+    if (firstNumber > secondNumber){
+        return ('Первое число больше второго');
+    }else if (firstNumber < secondNumber) {
+        return ('Второе число больше первого');
+    }else if(firstNumber = secondNumber){
+        return ('Числа равны');
+    }else {
+        return ('Что-то пошло не так');
     }
-    while(isNaN(money) || money === '' || money === null);
 };
+console.log(taskRes());
 
-start();
+let firstYear = +prompt('Введите первый год', 2010);
+    secondYear = +prompt('Введите второй год', 2050);
+
+const getLeapYears = (start, end) =>
+  [...Array(end - start + 1)]
+    .map((n, i) => start + i)
+    .filter(n => ((n % 100) && !(n % 4)) || !(n % 400));
+
+console.log(getLeapYears(firstYear, secondYear));
 
 
-addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log(addExpenses.toLowerCase().split(', '));
+let sum = 0;
 
-deposit = confirm('Есть ли у вас депозит в банке?');
+    while (true) {
 
-let howMuchFirst,
-    howMuchSecond;
+    let n = +prompt("Введите число", '');
 
-let getExpensesMonth = function() {
-    let sum  = 0;
-    for (let i = 0; i < 2; i++){
-        if(i === 0){
-            howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
-        }
-        if(i === 1){
-            howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
-        }
-        do {
-            sum += +prompt('Во сколько это обойдется?', 2500);
-        }
-        while(isNaN(sum) || sum === '' || sum === null);
-        
+    if (!n) break; 
+
+    sum += n;
+
     }
-    return sum;
-    };
-    let expensesAmount = getExpensesMonth();
-
-let getAccumulatedMonth = function() {
-    return money - expensesAmount;
-    };
-    let accumulatedMonth = getAccumulatedMonth();
-    console.log(accumulatedMonth);
-
-let getTargetMonth = function() {
-    return mission / accumulatedMonth;
-    };
-    getTargetMonth();
-    
-    let targetMonth = function(){
-        if (getTargetMonth < 0) {
-            return ('Цель не будет достигнута');
-        }else {
-            return ('Цель будет достигнута');
-        }
-    };
-
-    console.log(targetMonth());
+    console.log( 'Сумма: ' + sum );
 
 
+let prNum;
+prNum = Math.floor(Math.random() * 100)+1;
 
+function guessNum() {
+     let num;    
+     while(true){
+        num = +prompt ('Угадай число', 1);
+        if (num == prNum) {
+            messageWin = alert('Поздравляю вы угадали!!!'); 
+            messageWin = confirm('Хотите сыграть еще?'); 
+        } else if (num > 100 || num < 1) {
+           messageReq = alert('Введите число от 1 до 100');
+        } else if (num > prNum) {
+           messageMore = alert('Mеньше!');
+        } else if (num < prNum) {
+           messageLess = alert('Больше!');
+        }else if (isNaN(num)){
+            messageLess = alert('Введи число!');
+         }
+     }
 
+}
 
-    let showTypeOf = function(data) {
-        console.log(data, typeof(data));
-    };
-    showTypeOf(money);
-    showTypeOf(income);
-    showTypeOf(deposit);
-
-    budgetDay = accumulatedMonth/30;
-    
-    let getStatusIncome = function(){
-        if (budgetDay <= 0){
-            return ('Что-то пошло не так');
-        }else if (budgetDay <= 300) {
-            return ('Низкий уровень дохода');
-        }else if(budgetDay <= 800){
-            return ('Средний уровень дохода');
-        }else {
-            return ('Высокий уровень дохода');
-        }
-    };
-
-    console.log(getStatusIncome());
+guessNum();
