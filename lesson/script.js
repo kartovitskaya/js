@@ -16,38 +16,59 @@ let appData = {
         addIncome: [],
         expenses: {},
         addExpenses: [],
+        budget: money,
         deposit: false,
         mission: 50000,
         period: 3,
+        budgetDay: 0,
+        budgetMonth: 0,
+        expemsesMonth:0,
         asking: function(){
             let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
                 appData.addExpenses = addExpenses.toLowerCase().split(', ');
                 appData.deposit = confirm('Есть ли у вас депозит в банке?');
         }
+        getExpensesMonth : function(){
+            let sum  = 0;
+            for (let i = 0; i < 2; i++){
+                if(i === 0){
+                    howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
+                }
+                else{
+                    howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
+                }
+                do {
+                    sum += +prompt('Во сколько это обойдется?', 2500);
+                }
+                while(isNaN(sum) || sum === '' || sum === null);
+                
+            }
+            return sum;
+            }
 };
 
 
 let howMuchFirst,
     howMuchSecond;
 
-let getExpensesMonth = function() {
-    let sum  = 0;
-    for (let i = 0; i < 2; i++){
-        if(i === 0){
-            howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
-        }
-        else{
-            howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
-        }
-        do {
-            sum += +prompt('Во сколько это обойдется?', 2500);
-        }
-        while(isNaN(sum) || sum === '' || sum === null);
+// let getExpensesMonth = function() {
+//     let sum  = 0;
+//     for (let i = 0; i < 2; i++){
+//         if(i === 0){
+//             howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
+//         }
+//         else{
+//             howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
+//         }
+//         do {
+//             sum += +prompt('Во сколько это обойдется?', 2500);
+//         }
+//         while(isNaN(sum) || sum === '' || sum === null);
         
-    }
-    return sum;
-    };
-let expensesMonth = getExpensesMonth();
+//     }
+//     return sum;
+//     };
+// let expensesMonth = getExpensesMonth();
 
 let getAccumulatedMonth = function() {
     return money - expensesMonth;
@@ -72,16 +93,6 @@ let getTargetMonth = function() {
 
     console.log(targetMonth());
 
-
-
-
-
-    let showTypeOf = function(data) {
-        console.log(data, typeof(data));
-    };
-    showTypeOf(money);
-    showTypeOf(appData.income);
-    showTypeOf(appData.deposit);
 
     budgetDay = accumulatedMonth/30;
     
