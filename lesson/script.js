@@ -1,28 +1,31 @@
 //Задание
-
-let income = 'taxi',
-    addExpenses = 'Food, Water, Study',
-    deposit = false,
-    mission = 10000;
-
-
-    function start(){
-        let money;
+//Задание
+let money,
+    start = function(){
         do {
             money = +prompt('Ваш месячный доход?', 30000);
         }
         while (isNaN(money) || money === null || money === '');
         return money;
-    };
+};
 
 start();
 
+let appData = {
+        income: {},
+        addIncome: [],
+        expenses: {},
+        addExpenses: [],
+        deposit: false,
+        mission: 50000,
+        period: 3,
+        asking: function(){
+            let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
+                appData.addExpenses = addExpenses.toLowerCase().split(', ');
+                appData.deposit = confirm('Есть ли у вас депозит в банке?');
+        }
+};
 
-
-addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log(addExpenses.toLowerCase().split(', '));
-
-deposit = confirm('Есть ли у вас депозит в банке?');
 
 let howMuchFirst,
     howMuchSecond;
@@ -33,7 +36,7 @@ let getExpensesMonth = function() {
         if(i === 0){
             howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
         }
-        if(i === 1){
+        else{
             howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
         }
         do {
@@ -44,16 +47,16 @@ let getExpensesMonth = function() {
     }
     return sum;
     };
-    let expensesAmount = getExpensesMonth();
+let expensesMonth = getExpensesMonth();
 
 let getAccumulatedMonth = function() {
-    return money - getExpensesMonth();
+    return money - expensesMonth;
     };
     let accumulatedMonth = getAccumulatedMonth();
     console.log(getAccumulatedMonth());
 
 let getTargetMonth = function() {
-    return mission / accumulatedMonth;
+    return appData.mission / accumulatedMonth;
     };
     getTargetMonth();
     console.log(Math.floor(getTargetMonth()));
@@ -77,8 +80,8 @@ let getTargetMonth = function() {
         console.log(data, typeof(data));
     };
     showTypeOf(money);
-    showTypeOf(income);
-    showTypeOf(deposit);
+    showTypeOf(appData.income);
+    showTypeOf(appData.deposit);
 
     budgetDay = accumulatedMonth/30;
     
