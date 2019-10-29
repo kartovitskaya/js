@@ -1,21 +1,19 @@
 //Задание
+let money,
+let start = function(){
+    do {
+        money = +prompt('Ваш месячный доход?', 30000);
+    }
+    while (isNaN(money) || money === null || money === '');
+    return money;
+};
+
+start();
 
 let income = 'taxi',
     addExpenses = 'Food, Water, Study',
     deposit = false,
     mission = 10000;
-
-
-    function start(){
-        let money;
-        do {
-            money = +prompt('Ваш месячный доход?', 30000);
-        }
-        while (isNaN(money) || money === null || money === '');
-        return money;
-    };
-
-start();
 
 
 
