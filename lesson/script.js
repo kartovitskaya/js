@@ -1,11 +1,11 @@
 //Задание
 let money,
-let start = function(){
-    do {
-        money = +prompt('Ваш месячный доход?', 30000);
-    }
-    while (isNaN(money) || money === null || money === '');
-    return money;
+    start = function(){
+        do {
+            money = +prompt('Ваш месячный доход?', 30000);
+        }
+        while (isNaN(money) || money === null || money === '');
+        return money;
 };
 
 start();
