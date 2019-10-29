@@ -5,11 +5,11 @@ let income = 'taxi',
     deposit = false,
     mission = 10000;
 
-let money = start();
+
     function start(){
         let money;
         do {
-            money = prompt('Ваш месячный доход?', 30000);
+            money = +prompt('Ваш месячный доход?', 30000);
         }
         while (isNaN(money) || money === null || money === '');
         return money;
@@ -89,7 +89,7 @@ let getTargetMonth = function() {
             return ('Низкий уровень дохода');
         }else if(300 <= budgetDay <= 800){
             return ('Средний уровень дохода');
-        }else {
+        }else if(budgetDay > 800){
             return ('Высокий уровень дохода');
         }
     };
