@@ -2,7 +2,7 @@
 let money,
     start = function(){
         do {
-            money = prompt('Ваш месячный доход?', 30000);
+            money = +prompt('Ваш месячный доход?', 30000);
         }
         while (isNaN(money) || money === null || money === '');
         return +money;
@@ -82,15 +82,16 @@ let getTargetMonth = function() {
     budgetDay = accumulatedMonth/30;
     
     let getStatusIncome = function(){
-        if (budgetDay <= 0){
-            return ('Что-то пошло не так');
-        }else if (0 < budgetDay <= 300) {
-            return ('Низкий уровень дохода');
-        }else if(300 <= budgetDay <= 800){
-            return ('Средний уровень дохода');
-        }else if(budgetDay > 800){
-            return ('Высокий уровень дохода');
-        }
+        if( budgetDay > 800 ) {
+            return 'Высокий уровень дохода';
+          } else if( budgetDay >= 300 && budgetDay <= 800 ) {
+            return 'Средний уровень дохода';
+          } else if( budgetDay >= 0 && budgetDay < 300 ) {
+            return 'Низкий уровень дохода';
+          } else if( budgetDay < 0 ) {
+            return 'Что-то пошло не так';
+          }
     };
+    
 
     console.log(getStatusIncome());
