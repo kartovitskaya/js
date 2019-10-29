@@ -5,7 +5,7 @@ let money,
             money = +prompt('Ваш месячный доход?', 30000);
         }
         while (isNaN(money) || money === null || money === '');
-        return money;
+        return +money;
 };
 
 start();
@@ -26,26 +26,27 @@ let howMuchFirst,
     howMuchSecond;
 
 let getExpensesMonth = function() {
-    let sum  = 0;
+    let sum  = 0, question;
+
     for (let i = 0; i < 2; i++){
         if(i === 0){
             howMuchFirst = prompt('Введите обязательную статью расходов', 'Квартплата');
         }
-        if(i === 1){
+        else{
             howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
         }
         do {
-            sum += +prompt('Во сколько это обойдется?', 2500);
+            questiion = prompt('Во сколько это обойдется?', 2500);
         }
-        while(isNaN(sum) || sum === '' || sum === null);
-        
+        while(isNaN(questiion) || questiion === '' || questiion === null);
+        sum += +questiion;
     }
     return sum;
     };
     let expensesAmount = getExpensesMonth();
 
 let getAccumulatedMonth = function() {
-    return money - getExpensesMonth();
+    return money - expensesAmount;
     };
     let accumulatedMonth = getAccumulatedMonth();
     console.log(getAccumulatedMonth());
