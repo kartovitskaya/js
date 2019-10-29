@@ -1,6 +1,7 @@
 //Задание
-let money,
-    start = function(){
+let money = start();
+    function start(){
+        let money;
         do {
             money = prompt('Ваш месячный доход?', 30000);
         }
@@ -8,7 +9,6 @@ let money,
         return +money;
 };
 
-start();
 
 let income = 'taxi',
     addExpenses = 'Food, Water, Study',
@@ -36,10 +36,10 @@ let getExpensesMonth = function() {
             howMuchSecond = prompt('Введите обязательную статью расходов', 'Бензин'); 
         }
         do {
-            questiion = prompt('Во сколько это обойдется?', 2500);
+            question = prompt('Во сколько это обойдется?', 2500);
         }
-        while(isNaN(questiion) || questiion === '' || questiion === null);
-        sum += +questiion;
+        while(isNaN(question) || question === '' || question === null);
+        sum += +question;
     }
     return sum;
     };
@@ -59,10 +59,10 @@ let getTargetMonth = function() {
 
     
     let targetMonth = function(){
-        if (getTargetMonth < 0) {
-            return ('Цель не будет достигнута');
+        if (getTargetMonth <0) {
+            return 'Цель не будет достигнута';
         }else {
-            return ('Цель будет достигнута');
+            return 'Цель будет достигнута';
         }
     };
 
