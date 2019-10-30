@@ -5,7 +5,7 @@ let money,
             money = prompt('Ваш месячный доход?', 30000);
         }
         while (isNaN(money) || money === null || money === '');
-        return +money;
+        return money;
 };
 
     start();
@@ -18,7 +18,7 @@ let appData = {
     deposit: false,
     mission: 50000,
     period: 3,
-    budget: money,
+    budget: +money,
     budgetDay: 0, 
     budgetMonth: 0, 
     expensesMonth: 0,

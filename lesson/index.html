@@ -133,5 +133,42 @@
     };
     delte obj.b;
     console.log('obj:', obj);
+
+    <!-- Перебор массива -->
+    for (let i = 0; i < mix.length; i++){
+        console.log(mix[i]);
+    }
+    <!--Больше подходит для объектов  -->
+    for (let index in mix) {
+        console.log(index);
+    }
+    for (let elem of mix){
+        console.log(elem);
+    }
+    mix.forEach(function(item, index, arr){
+        console.table({item, index});
+    })
+    <!-- Стрелочная запись -->
+    mix.forEach((item) => console.log(item))
+
+    <!-- Методы перебора массива, которые возвращают -->
+    <!-- Смена регистра -->
+    for ( let i = 0; i < names.length; i++){
+        names[i] = names[i][0].toUpperCase() + names[i].slice(1).toLowerCase()
+    }
+
+    names.forEach(function(item, i, arr){
+        arr[i] = item[0].toUpperCase() = item.slice(1).toLowerCase();
+    })
+    console.log(names);
+
+    const correctName = names.map(function(item){
+        return item[0].toUpperCase() + item.slice(1).toLowerCase();
+    })
+    ИЛИ
+    names = names.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase());
+
+    console.log(correctName);
+
 </body>
 </html>
