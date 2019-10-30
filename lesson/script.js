@@ -63,7 +63,7 @@ let getTargetMonth = function() {
 
     
     let targetMonth = function(){
-        if (getTargetMonth <0) {
+        if (getTargetMonth() <0) {
             return 'Цель не будет достигнута';
         }else {
             return 'Цель будет достигнута';
