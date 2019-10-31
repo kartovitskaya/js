@@ -122,7 +122,7 @@ let appData = {
 }
 
 let textAddExpenses = function(){
-    appData.addExpenses = appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase());
-    textAddExpenses = appData.addExpenses[i] + ', ';
+    appData.addExpensesCapitalize = appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase());
+    textAddExpenses = appData.addExpensesCapitalize[i] + ', ';
 }
 console.log(textAddExpenses());
