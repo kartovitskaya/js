@@ -45,7 +45,8 @@ let appData = {
             appData.income[itemIncome] = cashIncome;
         }
         let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
-            appData.addExpenses = addExpenses.toLowerCase().split(', ');
+            appData.addExpenses = appData.dataTypeString(addExpenses);
+            // appData.addExpenses = addExpenses.toLowerCase().split(', ');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
         let answerFirst;
@@ -121,8 +122,11 @@ let appData = {
 	console.log('Ключ: ' + key, 'Значение: ' + appData[key]);
 }
 
-let textAddExpenses = function(){
-    appData.addExpensesCapitalize = appData.addExpenses.map((item) => item[0].toUpperCase() + item.slice(1).toLowerCase());
-    textAddExpenses = appData.addExpensesCapitalize[i] + ', ';
+let textAddExpenses = '';
+
+for (let i = 0; i < appData.addExpenses.length; i++){
+    appData.addExpenses[i] = appData.addExpenses[i][0].toUpperCase() + appData.addExpenses[i].slice(1).toLowerCase();
+    textAddExpenses = appData.addExpenses[i] + ', ';
 }
 console.log(textAddExpenses());
+
