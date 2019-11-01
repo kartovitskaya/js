@@ -44,9 +44,13 @@ let appData = {
             appData.cashIncome = appData.dataTypeNumber(cashIncome);
             appData.income[itemIncome] = cashIncome;
         }
-        let addExpenses = prompt ('Перечислите возможные расходы за рассчитываемый период через запятую');
-            appData.addExpenses = appData.dataTypeString(addExpenses);
-            // appData.addExpenses = addExpenses.toLowerCase().split(', ');
+        
+        let addExpenses;
+          do {
+            addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+          } 
+          while (addExpenses === '' || addExpenses === null);
+            appData.addExpenses = addExpenses[0].toUpperCase() + addExpenses.slice(1).toLowerCase();
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
         let answerFirst;
@@ -122,11 +126,4 @@ let appData = {
 	console.log('Ключ: ' + key, 'Значение: ' + appData[key]);
 }
 
-let textAddExpenses = '';
-
-for (let i = 0; i < appData.addExpenses.length; i++){
-    appData.addExpenses[i] = appData.addExpenses[i][0].toUpperCase() + appData.addExpenses[i].slice(1).toLowerCase();
-    textAddExpenses = appData.addExpenses[i] + ', ';
-}
-console.log(textAddExpenses());
-
+console.log(appData.addExpenses.split(', '));
