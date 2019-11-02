@@ -29,16 +29,17 @@ let appData = {
             let itemIncome;
             let cashIncome;
             do{
-                itemIncome = prompt('Какой допльнительный заработок?', 'Таксую');
+                itemIncome = prompt('Какой допольнительный заработок?', 'Такси');
               } 
               while(Number(itemIncome) || itemIncome === '' || itemIncome === null);
       
               do {
-                cashIncome = prompt('Сколько в месяц на этом зарабатываете?', 15000);
+                cashIncome = prompt('Сколько в месяц на этом зарабатываете?', 10000);
               }
               while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null);
               appData.income[itemIncome] = cashIncome;
             }
+            
         
         let addExpenses;
         do {
@@ -46,7 +47,7 @@ let appData = {
           } 
           while (addExpenses === '' || addExpenses === null);
 
-          appData.addExpenses = addExpenses[0].toUpperCase() + addExpenses.slice(1).toLowerCase();
+        //   appData.addExpenses = addExpenses[0].toUpperCase() + addExpenses.slice(1).toLowerCase();
 
           appData.deposit = confirm('У вас есть депозит в банке?');
           
@@ -63,13 +64,16 @@ let appData = {
             } 
             while (isNaN(CashExpenses) || CashExpenses === '' || CashExpenses === null);
 
-            appData.expenses[itemExpenses] = CashExpenses;
+            appData.expenses[itemExpenses] = +CashExpenses;
           }
+          
+          
     },
     getExpensesMonth: function() {
 		for (let keys in appData.expenses){
 			appData.expensesMonth += appData.expenses[keys];
-		}
+        }
+        
     },
     getBudget:function() { 
         appData.budgetMonth = appData.budget - appData.expensesMonth;
@@ -116,7 +120,7 @@ let appData = {
     appData.getTargetMonth();
     console.log (appData.getStatusIncome());
     appData.getInfoDeposit();
-    console.log(appData.percentDeposit), appData.moneyDeposit, appData.calcSavedMoney();
+    console.log('Процент депозита: ' + appData.percentDeposit, 'Сумма на депозите: ' + appData.moneyDeposit, 'Сбережения: ' + appData.calcSavedMoney());
     
 
     console.log('Наша программа включает в себя данные:')
@@ -124,4 +128,9 @@ let appData = {
 	console.log('Ключ: ' + key, 'Значение: ' + appData[key]);
 }
 
-console.log(appData.addExpenses.split(', '));
+
+
+appData.addExpenses.forEach(function(item, i, arr){
+    arr[i] = item[0].toUpperCase() + item.slice(1).toLowerCase() + ', ';
+})
+console.log(appData.addExpenses);
