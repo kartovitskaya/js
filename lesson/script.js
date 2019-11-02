@@ -47,7 +47,7 @@ let appData = {
           } 
           while (addExpenses === '' || addExpenses === null);
 
-        //   appData.addExpenses = addExpenses[0].toUpperCase() + addExpenses.slice(1).toLowerCase();
+          appData.addExpenses = addExpenses.split(', ');
 
           appData.deposit = confirm('У вас есть депозит в банке?');
           
@@ -130,7 +130,8 @@ let appData = {
 
 
 
-appData.addExpenses.forEach(function(item, i, arr){
-    arr[i] = item[0].toUpperCase() + item.slice(1).toLowerCase() + ', ';
-})
-console.log(appData.addExpenses);
+let addExpensesString = "";
+appData.addExpenses.forEach(function (element) {
+    addExpensesString += element[0].toUpperCase() + element.slice(1) + ', ';
+});
+console.log(addExpensesString.slice(0, -2));
