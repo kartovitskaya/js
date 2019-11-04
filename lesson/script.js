@@ -39,6 +39,8 @@ let appData = {
               while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null);
               appData.income[itemIncome] = cashIncome;
             }
+
+            
             
         
         let addExpenses;
@@ -69,6 +71,12 @@ let appData = {
           
           
     },
+    getAddIncome: function() {
+        for (let keys in appData.income){
+            appData.income += appData.income[keys];
+        }
+        
+    },
     getExpensesMonth: function() {
 		for (let keys in appData.expenses){
 			appData.expensesMonth += appData.expenses[keys];
@@ -76,7 +84,7 @@ let appData = {
         
     },
     getBudget:function() { 
-        appData.budgetMonth = appData.budget - appData.expensesMonth;
+        appData.budgetMonth = appData.budget + appData.income - appData.expensesMonth;
         appData.budgetDay = Math.floor(appData.budgetMonth / 30);
    },
     getTargetMonth:function() { 
