@@ -55,7 +55,7 @@ let appData = {
             let itemExpenses;
             let CashExpenses;
             do {
-              itemExpenses = prompt('Введите обязательную статью расходов', 'Кварплата');
+              itemExpenses = prompt('Введите обязательную статью расходов');
             } 
             while(Number(itemExpenses) || itemExpenses === '' || itemExpenses === null);
             
