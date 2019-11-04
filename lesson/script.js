@@ -123,7 +123,7 @@ let appData = {
 };
 
     appData.asking();
-    console.log(appData.getAddIncome());
+    console.log(appData.incomeMonth);
     appData.getBudget();
     console.log('Расходы за месяц: ' + appData.expensesMonth);
     appData.getTargetMonth();
