@@ -38,7 +38,7 @@ let appData = {
                 cashIncome = prompt('Сколько в месяц на этом зарабатываете?', 10000);
               }
               while(isNaN(cashIncome) || cashIncome === '' || cashIncome === null);
-              appData.income[itemIncome] = +cashIncome;
+              appData.income[itemIncome] = cashIncome;
             }
 
             
@@ -75,8 +75,9 @@ let appData = {
     },
     getAddIncome: function() {
         for (let keys in appData.income){
-            appData.incomeMonth += appData.income[keys];
+            appData.incomeMonth += +appData.income[keys];
         }
+        console.log(appData.incomeMonth);
     },
 
     getExpensesMonth: function() {
@@ -124,7 +125,9 @@ let appData = {
 };
 
     appData.asking();
+    appData.getExpensesMonth();
     appData.getBudget();
+    appData.getAddIncome();
     console.log(appData.incomeMonth);
     console.log('Расходы за месяц: ' + appData.expensesMonth);
     appData.getTargetMonth();
