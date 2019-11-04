@@ -13,6 +13,7 @@ let money,
 let appData = {
     income: {},
     addIncome:[],
+    incomeMonth: 0,
     expenses: {},
     addExpenses: [],
     deposit: false,
@@ -73,10 +74,10 @@ let appData = {
     },
     getAddIncome: function() {
         for (let keys in appData.income){
-            appData.income += appData.income[keys];
+            appData.incomeMonth += appData.income[keys];
         }
-        
     },
+
     getExpensesMonth: function() {
 		for (let keys in appData.expenses){
 			appData.expensesMonth += appData.expenses[keys];
@@ -84,7 +85,7 @@ let appData = {
         
     },
     getBudget:function() { 
-        appData.budgetMonth = appData.budget + appData.income - appData.expensesMonth;
+        appData.budgetMonth = appData.budget + appData.incomeMonth - appData.expensesMonth;
         appData.budgetDay = Math.floor(appData.budgetMonth / 30);
    },
     getTargetMonth:function() { 
@@ -122,7 +123,7 @@ let appData = {
 };
 
     appData.asking();
-    appData.getExpensesMonth();
+    console.log(appData.getAddIncome());
     appData.getBudget();
     console.log('Расходы за месяц: ' + appData.expensesMonth);
     appData.getTargetMonth();
