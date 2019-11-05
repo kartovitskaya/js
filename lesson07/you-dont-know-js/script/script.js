@@ -24,9 +24,12 @@ ulBookSecond.insertBefore(liBookSecond[2], liBookSecond[10]);
 let ulBookFifth = book[5].querySelector('ul'),
     liBookFifth = book[5].querySelectorAll('li');
 
-ulBookFifth.insertBefore(liBookFifth[2], liBookFifth[5]);
-ulBookFifth.insertBefore(liBookFifth[9], liBookFifth[3]);
-ulBookFifth.insertBefore(liBookFifth[5], liBookFifth[8]);
+    ulBookFifth.insertBefore(liBookFifth[2], liBookFifth[6]);
+    ulBookFifth.insertBefore(liBookFifth[9], liBookFifth[3]);
+    ulBookFifth.insertBefore(liBookFifth[5], liBookFifth[8]);
+    ulBookFifth.removeChild(liBookFifth[12]);
+    ulBookFifth.insertBefore(liBookFifth[10], liBookFifth[8]);
+
 
 let newItem = document.createElement('li');
 newItem.Content = "Глава 8: За пределами ES6";
