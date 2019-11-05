@@ -1,5 +1,5 @@
-let books = document.querySelectorAll('.books'),
-    book = document.querySelectorAll('.book');
+let books = document.querySelectorAll('.books');
+let book = document.querySelectorAll('.book');
 
 books[0].appendChild(book[2]);
 books[0].insertBefore(book[3], book[5]);
@@ -30,8 +30,9 @@ ulBookFifth.insertBefore(liBookFifth[5], liBookFifth[8]);
 
 let newItem = document.createElement('li');
 newItem.Content = "Глава 8: За пределами ES6";
+ulBookFifth.appendChild(newItem);
 
-let ulBookSixth = book[2].querySelector('ul');
-let liBookSixth = book[2].querySelectorAll('li');
-ulBookSixth.insertBefore(newItem, liBookSixth[9]);
+
+let liBookSixth = ulBookFifth.querySelectorAll('li');
+ulBookFifth.insertBefore(liBookSixth[10], liBookSixth[9]);
 
