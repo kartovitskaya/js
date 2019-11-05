@@ -9,13 +9,13 @@ let start = document.getElementById('start'),
 
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
 
-    budgetDayValue = document.getElementsByClassName('budget_day-value'),
-    budgetMonthValue = document.getElementsByClassName('budget_month-value'),
-    expensesMonthValue = document.getElementsByClassName('expenses_month-value'),
-    additionalIncomeValue = document.getElementsByClassName('additional_income-value'),
-    additionalExpensesValue = document.getElementsByClassName('additional_expenses-value'),
-    incomePeriodValue = document.getElementsByClassName('income_period-value'),
-    targetMonthValue = document.getElementsByClassName('target_month-value'),
+    budgetDayValue = document.querySelector('budget_day-value'),
+    budgetMonthValue = document.querySelector('budget_month-value'),
+    expensesMonthValue = document.querySelector('expenses_month-value'),
+    additionalIncomeValue = document.querySelector('additional_income-value'),
+    additionalExpensesValue = document.querySelector('additional_expenses-value'),
+    incomePeriodValue = document.querySelector('income_period-value'),
+    targetMonthValue = document.querySelector('target_month-value'),
 
     salaryAmount = document.querySelector('.salary-amount'),
     incomeItems = document.querySelectorAll('.income-items'),
@@ -103,9 +103,8 @@ let appData = {
             let itemExpenses = item.querySelector('.expenses-title').value,
              cashExpenses = item.querySelector('.expenses-amount').value;
             if(itemExpenses !=='' && cashExpenses !== ''){
-                appData.expenses[itemExpenses] = cashExpenses;
+                appData.expenses[itemExpenses] = +cashExpenses;
             }
-            console.log(cashExpenses);
         });
     },
     getIncome: function () {
