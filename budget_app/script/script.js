@@ -100,11 +100,12 @@ let appData = {
       },
     getExpenses: function(){
         expensesItems.forEach(function(item){
-            let itemExpenses = item.querySelector('.expenses-title').value;
-            let cashExpenses = item.querySelector('.expenses-amount').value;
+            let itemExpenses = item.querySelector('.expenses-title').value,
+             cashExpenses = item.querySelector('.expenses-amount').value;
             if(itemExpenses !=='' && cashExpenses !== ''){
                 appData.expenses[itemExpenses] = cashExpenses;
             }
+            console.log(cashExpenses);
         });
     },
     getIncome: function () {
