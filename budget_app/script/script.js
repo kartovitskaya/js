@@ -9,13 +9,13 @@ let start = document.getElementById('start'),
 
     additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
 
-    budgetDayValue = document.querySelector('budget_day-value'),
-    budgetMonthValue = document.querySelector('budget_month-value'),
-    expensesMonthValue = document.querySelector('expenses_month-value'),
-    additionalIncomeValue = document.querySelector('additional_income-value'),
-    additionalExpensesValue = document.querySelector('additional_expenses-value'),
-    incomePeriodValue = document.querySelector('income_period-value'),
-    targetMonthValue = document.querySelector('target_month-value'),
+    budgetDayValue = document.querySelector('.budget_day-value'),
+    budgetMonthValue = document.querySelector('.budget_month-value'),
+    expensesMonthValue = document.querySelector('.expenses_month-value'),
+    additionalIncomeValue = document.querySelector('.additional_income-value'),
+    additionalExpensesValue = document.querySelector('.additional_expenses-value'),
+    incomePeriodValue = document.querySelector('.income_period-value'),
+    targetMonthValue = document.querySelector('.target_month-value'),
 
     salaryAmount = document.querySelector('.salary-amount'),
     incomeItems = document.querySelectorAll('.income-items'),
@@ -29,6 +29,8 @@ let start = document.getElementById('start'),
     depositAmount = document.querySelector('.deposit-amount'),
     depositPercent = document.querySelector('.deposit-percent'),
     periodAmount = document.querySelector('.period-amount'); 
+    data = document.querySelector('.data'),
+	inputData = data.querySelectorAll('input');
 
 //Задание
 let appData = {
@@ -45,19 +47,23 @@ let appData = {
     budgetDay: 0, 
     budgetMonth: 0, 
     expensesMonth: 0,
-    start: function(){
-        if(salaryAmount.value === ''){
-            start.setAttribute('disabled', true);
-            return;
+    check: function () {
+        do{
+            start.removeAttribute('disabled');
         }
+        while (salaryAmount.value !== '');
+      },
+      start: function () {
+        start.style.display = 'none';
+        cancel.style.display = 'block';
         let allInput = document.querySelectorAll('.data input[type = text]');
-            allInput.forEach(function (item) {
-            item.setAttribute('disabled', 'disabled');
-            });
-            incomePlus.setAttribute('disabled', 'disabled');
-            expensesPlus.setAttribute('disabled', 'disabled');
-            start.style.display = 'none';
-            cancel.style.display = 'block';
+        allInput.forEach(function (item) {
+          item.setAttribute('disabled', 'disabled');
+        });
+        incomePlus.setAttribute('disabled', 'disabled');
+        expensesPlus.setAttribute('disabled', 'disabled');
+        
+
 
         appData.budget = +salaryAmount.value;
 
@@ -169,9 +175,15 @@ let appData = {
     calcPeriod: function(){
         return appData.budgetMonth * periodSelect.value;
     }
+    
 };
 
 //События
     start.addEventListener('click', appData.start);
     expensesPlus.addEventListener('click', appData.addExpensesBlock);
     incomePlus.addEventListener('click', appData.addIncomeBlock);
+
+    periodSelect.addEventListener('change', function () {
+        periodAmount.innerHTML = periodSelect.value;
+      });
+    
