@@ -187,6 +187,6 @@ let appData = {
 
     periodSelect.addEventListener('change', function () {
         periodAmount.innerHTML = periodSelect.value;
+        incomePeriodValue.value = appData.calcPeriod();
       });
     
-
