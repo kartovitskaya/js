@@ -118,7 +118,7 @@ let appData = {
           let itemIncome = item.querySelector('.income-title').value;
           let cashIncome = item.querySelector('.income-amount').value;
           if (itemIncome !== '' && cashIncome !== '') {
-            appData.income[itemIncome] = cashIncome;
+            appData.income[itemIncome] = +cashIncome;
           }
         });
 
@@ -136,7 +136,7 @@ let appData = {
         additionalIncomeItem.forEach(function(item){
             let itemValue = item.value.trim();
             if (itemValue !== ''){
-                appData.additionalIncome.push(itemValue);
+                appData.addIncome.push(itemValue);
             }
         });
     },
@@ -182,6 +182,8 @@ let appData = {
     start.addEventListener('click', appData.start);
     expensesPlus.addEventListener('click', appData.addExpensesBlock);
     incomePlus.addEventListener('click', appData.addIncomeBlock);
+
+    
 
     periodSelect.addEventListener('change', function () {
         periodAmount.innerHTML = periodSelect.value;
