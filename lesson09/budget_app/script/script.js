@@ -247,8 +247,8 @@ start.addEventListener('click', function(){
 })
 
 
-//События
-    start.addEventListener('click', appData.start);
+// //События
+
 
     expensesPlus.addEventListener('click', appData.addExpensesBlock);
     incomePlus.addEventListener('click', appData.addIncomeBlock);
