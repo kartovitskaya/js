@@ -189,3 +189,4 @@ let appData = {
         periodAmount.innerHTML = periodSelect.value;
       });
     
+
