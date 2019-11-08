@@ -143,16 +143,21 @@ let appData = {
         });
     },
     getAddIncome: function(){
-        additionalIncomeItem.forEach(function(item){
-            let itemValue = item.value.trim();
-            if (itemValue !== ''){
-                appData.addIncome.push(itemValue);
-            }
-        });
+        for (let key in this.income) {
+            this.incomeMonth += +this.income[key];
+        }
     },
+    // getAddIncome: function(){
+    //     additionalIncomeItem.forEach(function(item){
+    //         let itemValue = item.value.trim();
+    //         if (itemValue !== ''){
+    //             appData.addIncome.push(itemValue);
+    //         }
+    //     });
+    // },
 
     getBudget:function() { 
-        this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth;
+        this.budgetMonth = this.budget + this.incomeMonth  - this.expensesMonth;
         this.budgetDay = Math.floor(this.budgetMonth / 30);
    },
     getTargetMonth:function() { 
@@ -201,7 +206,8 @@ let appData = {
 		incomePlus.style.display = 'block';
         expensesPlus.style.display = 'block';
 
-        periodSelect.value = 1;
+        periodSelect.value = '0';
+         periodAmount.innerHTML = periodSelect.value;
 
         appData.budget = 0;
 		appData.budgetDay = 0;
