@@ -106,6 +106,15 @@ let appData = {
             }
         });
     },
+    addIncomeBlock: function () {
+        let cloneIncomeItem = incomeItems[0].cloneNode(1);
+        incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+        incomeItems = document.querySelectorAll('.income-items');
+
+        if (incomeItems.length === 3) {
+          incomePlus.style.display = 'none';
+        }
+      },
     getIncome: function () {
         incomeItems.forEach(function (item) {
           let itemIncome = item.querySelector('.income-title').value;
@@ -116,17 +125,6 @@ let appData = {
         });
 
       },
-    addIncomeBlock: function () {
-        let cloneIncomeItem = incomeItems[0].cloneNode(1);
-        incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
-        incomeItems = document.querySelectorAll('.income-items');
-
-        if (incomeItems.length === 3) {
-          incomePlus.style.display = 'none';
-        }
-      },
-
-    
 
       getExpensesMonth: function() {
 		for (let keys in this.expenses){
@@ -142,19 +140,19 @@ let appData = {
             }
         });
     },
-    getAddIncome: function(){
+    getIncomeMonth: function(){
         for (let key in this.income) {
             this.incomeMonth += +this.income[key];
         }
     },
-    // getAddIncome: function(){
-    //     additionalIncomeItem.forEach(function(item){
-    //         let itemValue = item.value.trim();
-    //         if (itemValue !== ''){
-    //             appData.addIncome.push(itemValue);
-    //         }
-    //     });
-    // },
+    getAddIncome: function(){
+        additionalIncomeItem.forEach(function(item){
+            let itemValue = item.value.trim();
+            if (itemValue !== ''){
+                appData.addIncome.push(itemValue);
+            }
+        });
+    },
 
     getBudget:function() { 
         this.budgetMonth = this.budget + this.incomeMonth  - this.expensesMonth;
@@ -223,7 +221,9 @@ let appData = {
  
 
         inputText.forEach(function(item){
-            item.value = '';
+            if (item != periodSelect){
+                item.value = '';
+            }
         });
     
 
@@ -264,7 +264,7 @@ start.addEventListener('click', function(){
 
     resetBtn.addEventListener('click', appData.reset);
 
-    periodSelect.addEventListener('change', function () {
+    periodSelect.addEventListener('mousemove', function () {
         periodAmount.innerHTML = periodSelect.value;
         incomePeriodValue.value = appData.calcPeriod();
         
