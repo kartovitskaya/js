@@ -1,4 +1,6 @@
-const DomElement = function (selector, height, width, bg, fontSize) {
+let body = document.querySelector('body'),
+  newElem;
+  const DomElement = function (selector, height, width, bg, fontSize) {
     this.selector = selector;
     this.height = height;
     this.width = width;
@@ -20,7 +22,9 @@ const DomElement = function (selector, height, width, bg, fontSize) {
       background:${this.bg};
       font-size: ${this.fontSize}`;
   };
-  
+
   const newDomElement = new DomElement('#line', '10px', '100px', 'white', '20px');
+  newDomElement.text = 'JavaScript';
   
-  newDomElement.createElem();
+  document.body.append(newDomElement);
+  console.log(newDomElement);
